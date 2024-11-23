@@ -63,7 +63,7 @@ main {
     background: linear-gradient(45deg, #d45f60, #e5886e);
     color: rgb(2, 45, 121);
     font-weight: bold;
-    font-family: cursive;
+    font-family: 'TALE';
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
