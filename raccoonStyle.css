@@ -89,7 +89,7 @@ main {
     background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb);
     color: rgb(95, 0, 0);
     cursor: pointer;
-    font-family: 'TALE', sans-serif;
+    font-family: 'TALE';
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
