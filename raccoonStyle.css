@@ -3,11 +3,10 @@ body {
     padding: 0;
     text-align: center;
     background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb);
-    background-size: 400% 400%;
-    animation: gradientAnimation 5s infinite;
+    animation: gradientAnimation 3s infinite;
     color: #7e1313;
     font-family: 'TALE';
-    font-size: 150%;
+    font-size: 1.8rem;
 }
 
 @font-face {
@@ -30,16 +29,6 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Header Styling */
-header {
-    background-color: #ff89b6;
-    color: #fff;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
 /* Main Section */
 main {
     padding: 2rem;
@@ -55,13 +44,14 @@ main {
 
 /* Input Field */
 #secret-input {
+    width: 50%;
     padding: 0.7rem 1rem;
     font-size: 1.1rem;
     border-radius: 8px;
     border: 2px solid #f093fb;
     outline: none;
     background: linear-gradient(45deg, #d45f60, #e5886e);
-    color: rgb(2, 45, 121);
+    color: rgb(250, 250, 250);
     font-weight: bold;
     font-family: 'TALE';
     transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -80,17 +70,19 @@ main {
 #check-btn {
     display: inline-block;
     margin-top: 1rem;
-    padding: 0.7rem 1.5rem;
-    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     text-transform: uppercase;
     border: none;
     border-radius: 8px;
     background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb);
-    color: rgb(95, 0, 0);
+    color: rgb(255, 0, 0);
     cursor: pointer;
     font-family: 'TALE';
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 50%;
+    max-width: 400px;
 }
 
 #check-btn:hover {
@@ -101,7 +93,7 @@ main {
 /* Message Section */
 #message {
     margin-top: 1rem;
-    font-size: 1rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: brown;
 }
@@ -116,7 +108,9 @@ main {
 }
 
 .image-gallery img {
-    width: 200px;
+    max-width: 45%;
+    width: 45%;
+    height: auto;
     border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
     cursor: pointer;
@@ -150,14 +144,15 @@ main {
     }
 
     #check-btn {
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
+        font-size: 1.2rem;
+        padding: 0.7rem 1.5rem;
+        width: 60%;
     }
 }
 
 @media (max-width: 480px) {
     header {
-        font-size: 1rem;
+        font-size: 1.8rem;
         padding: 1rem;
     }
 
@@ -167,7 +162,8 @@ main {
     }
 
     #check-btn {
-        font-size: 0.9rem;
-        padding: 0.5rem 0.8rem;
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        width: 80%;
     }
 }
