@@ -49,15 +49,16 @@ const pageBackgrounds = [
 ];
 
 let clickCount = 0;
-const maxClicks = 7;
-const maxPageIndex = raccoonStates.length - 1;
+const maxClicks = 7;       // numero totale click validi
+const maxPageIndex = 6;    // indice ultima pagina (0-based)
 
 const pagesContainer = document.getElementById('pagesContainer');
 const heartSound = document.getElementById('heartSound');
 const heartbeatAudio = new Audio('heartbeat.mp3');
 heartbeatAudio.preload = 'auto';
 
-document.body.style.overflow = 'hidden'; // blocca scroll
+// Blocca scroll manuale
+document.body.style.overflow = 'hidden';
 
 function smoothScrollTo(target, duration) {
   const start = window.pageYOffset;
@@ -72,7 +73,7 @@ function smoothScrollTo(target, duration) {
     if (elapsed < duration) {
       requestAnimationFrame(scrollStep);
     } else {
-      window.scrollTo(0, target.offsetTop);
+      window.scrollTo(0, end);
     }
   }
 
@@ -88,12 +89,11 @@ function createPage(index) {
 
   if (pageBackgrounds[index].endsWith('.mp4')) {
     bg.innerHTML = `<video autoplay muted playsinline loop class="bg-video">
-      <source src="${pageBackgrounds[index]}" type="video/mp4">
+      <source src="${pageBackgrounds[index]}" type="video/mp4" />
     </video>`;
   } else {
     bg.style.backgroundImage = `url('${pageBackgrounds[index]}')`;
   }
-
   page.appendChild(bg);
 
   const container = document.createElement('div');
@@ -113,22 +113,24 @@ function createPage(index) {
 
   const raccoonContainer = document.createElement('div');
   raccoonContainer.className = 'raccoon-container';
-  raccoonContainer.dataset.clicked = "false";
+  raccoonContainer.dataset.clicked = "false"; // per bloccare click multipli
   Object.assign(raccoonContainer.style, positions[index] || {});
 
   const mediaElement = document.createElement('div');
   mediaElement.className = 'raccoon';
   mediaElement.innerHTML = `<video autoplay muted playsinline loop style="width:100%; height:100%; object-fit:contain;">
-    <source src="${raccoonStates[index]}" type="video/mp4">
+    <source src="${raccoonStates[index]}" type="video/mp4" />
   </video>`;
   mediaElement.classList.add('heartbeat');
 
+  // Battito graduale da lento a veloce
   const minSpeed = 0.8;
   const maxSpeed = 3.0;
   const step = Math.min(index, maxPageIndex);
   const speed = maxSpeed - (step / maxPageIndex) * (maxSpeed - minSpeed);
   mediaElement.style.setProperty('--heartbeat-speed', `${speed.toFixed(2)}s`);
 
+  // Audio battito sincronizzato
   heartbeatAudio.pause();
   heartbeatAudio.currentTime = 0;
   heartbeatAudio.playbackRate = 1 / speed;
@@ -145,7 +147,7 @@ function attachEvents(page) {
 
   function handleClick(e) {
     e.preventDefault();
-    if (raccoonContainer.dataset.clicked === "true") return;
+    if (raccoonContainer.dataset.clicked === "true") return;  // blocca click multipli
 
     raccoonContainer.dataset.clicked = "true";
     if (clickCount < maxClicks) {
@@ -161,12 +163,14 @@ function handleInteraction(event, container) {
   clickCount++;
   animateElements(container, event);
 
-  if (clickCount <= maxPageIndex) {
+  if (clickCount < maxClicks) {
+    // crea pagina successiva
     const newPage = createPage(clickCount);
     pagesContainer.appendChild(newPage);
     smoothScrollTo(newPage, 1000);
     attachEvents(newPage);
   } else if (clickCount === maxClicks) {
+    // mostra finale
     setTimeout(() => {
       mostraFrasiFinaliSovrapposte();
     }, 1200);
