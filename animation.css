@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'TALE';
+  src: url('TALE.ttf') format('truetype');
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap');
 
 /* Reset e base */
@@ -5,10 +10,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'TALE', 'Dancing Script', 'Poppins', cursive, sans-serif;
 }
 
 body {
-  font-family: 'Dancing Script', cursive;
   background: #061117;
   overflow: hidden;
   min-height: 100vh;
@@ -206,7 +211,7 @@ body {
   }
 }
 
-/* Pagina finale sovrapposta */
+/* Pagina finale */
 #finalPage {
   position: fixed;
   top: 0;
@@ -219,7 +224,7 @@ body {
   justify-content: center;
   background: linear-gradient(135deg, #15a378, #b744adc3, #fffc3f);
   z-index: 1000;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'TALE', 'Poppins', sans-serif;
   color: #350024;
   padding: 20px;
   text-align: center;
@@ -250,10 +255,7 @@ body {
   animation: textReveal 1.5s ease forwards;
 }
 
-.epic-text:nth-child(2) {
-  animation-delay: 0.8s;
-}
-
+/* Bottoni finali */
 #buttonsContainer {
   display: none;
   flex-direction: row;
@@ -285,7 +287,7 @@ body {
   outline: none;
 }
 
-/* Mobile responsive */
+/* Mobile */
 @media (max-width: 768px) {
   .raccoon-container {
     width: 240px;
