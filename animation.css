@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap');
+
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Dancing Script', cursive;
+  background: #061117;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Contenitore pagine */
+#pagesContainer {
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+/* Singola pagina */
+.page {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sfondo video/immagine */
+.page-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+}
+
+.page-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Barra di progresso */
+.progress-bar {
+  width: 80%;
+  height: 15px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  margin: 20px auto;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff4081, #ff80ab);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* Messaggi romantici */
+.romantic-message {
+  position: absolute;
+  font-size: 1.5em;
+  padding: 10px 15px;
+  border-radius: 15px;
+  background: linear-gradient(3deg, #ff7467, #ff0099, #ff5050, #ff00d9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+  transition: all 0.5s ease;
+  z-index: 20;
+}
+
+/* Contenitore procione */
+.raccoon-container {
+  position: absolute;
+  width: 320px;
+  height: 180px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.raccoon {
+  width: 116%;
+  height: 116%;
+  background-size: cover;
+  background-position: center;
+  clip-path: path("M180,45 C128,0 0,110 180,210 C360,110 232,0 180,45 Z");
+}
+
+/* Battito video procione */
+.raccoon.heartbeat {
+  animation: heartbeatVideo var(--heartbeat-speed, 1.2s) infinite ease-in-out;
+  transform-origin: center center;
+}
+
+@keyframes heartbeatVideo {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+/* Cuori galleggianti */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  transform: rotate(-45deg);
+  animation: float 2s linear forwards;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 10px;
+}
+
+@keyframes float {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(-45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(1.2) rotate(-45deg);
+  }
+}
+
+/* Trasformazione procione */
+@keyframes epicTransform {
+  0% {
+    transform: scale(0.8) rotate(20deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) rotate(-10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.epic {
+  animation: epicTransform 1s ease forwards;
+}
+
+/* Animazione checkmark */
+.picture-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  color: #00ae00;
+  opacity: 0;
+  animation: markFade 1s forwards;
+}
+
+@keyframes markFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Pagina finale sovrapposta */
+#finalPage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #15a378, #b744adc3, #fffc3f);
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+  color: #350024;
+  padding: 20px;
+  text-align: center;
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.epic-text {
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #ffd0f5;
+  text-shadow: 0 0 20px rgba(255, 192, 255, 0.8);
+  margin: 20px 0;
+  animation: textReveal 1.5s ease forwards;
+}
+
+.epic-text:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+#buttonsContainer {
+  display: none;
+  flex-direction: row;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.answer-button {
+  padding: 14px 30px;
+  font-size: 30px;
+  font-weight: 600;
+  border: none;
+  border-radius: 28px;
+  background: linear-gradient(135deg, hsl(325, 100%, 91%), #ffc8dd);
+  color: #3c3c3c;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(218, 73, 135, 0.7);
+  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.answer-button:hover,
+.answer-button:focus {
+  background: linear-gradient(135deg, #ff7caf, #da4987);
+  transform: scale(1.07);
+  box-shadow: 0 9px 25px rgba(255, 124, 175, 0.9);
+  outline: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .raccoon-container {
+    width: 240px;
+    height: 135px;
+    transform: scale(0.8);
+  }
+
+  .romantic-message {
+    font-size: 1.2em;
+  }
+
+  .raccoon {
+    width: 145%;
+    height: 170%;
+  }
+
+  #finalPage {
+    padding: 15px;
+  }
+
+  .epic-text {
+    font-size: 2.8rem;
+  }
+
+  #buttonsContainer {
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  .answer-button {
+    padding: 12px 22px;
+    font-size: 16px;
+    border-radius: 24px;
+  }
+}

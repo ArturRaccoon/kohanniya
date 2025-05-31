@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Love 🦝❤️</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@500&display=swap" rel="stylesheet" />
+
+    <!-- Stili principali -->
+    <link rel="stylesheet" href="animation.css" />
+
+    <!-- Script principale -->
+    <script src="animation.js" defer></script>
+</head>
+<body>
+    <!-- Contenitore delle pagine -->
+    <div id="pagesContainer"></div>
+
+    <!-- Suono del battito cardiaco -->
+    <audio id="heartSound" src="heartbeat.mp3" preload="auto"></audio>
+
+    <!-- Template pagina base -->
+    <template id="page-template">
+        <div class="container">
+            <div class="love-meter">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="romantic-message"></div>
+
+            <div class="raccoon-container">
+                <div class="raccoon"></div>
+            </div>
+        </div>
+    </template>
+</body>
+
+<svg width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
+        <path d="M0.5,0.2 
+                 C0.5,0.2 0.625,0 0.75,0.2 
+                 C0.875,0.4 0.875,0.6 0.75,0.8 
+                 C0.625,1 0.5,1 0.5,1 
+                 C0.5,1 0.375,1 0.25,0.8 
+                 C0.125,0.6 0.125,0.4 0.25,0.2 
+                 C0.375,0 0.5,0.2 0.5,0.2 Z" />
+      </clipPath>
+    </defs>
+</svg>
+
+</html>
