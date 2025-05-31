@@ -1,132 +1,194 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <link rel="icon" type="image/png" href="icon.png" />
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What is love</title>
+  <link rel="icon" type="image/png" href="icon.png" />
+
   <style>
-@font-face {
-    font-family: 'TALE';
-    src: url('TALE.ttf') format('truetype');
-}
+    @font-face {
+      font-family: 'TALE';
+      src: url('TALE.ttf') format('truetype');
+    }
+
     body {
       margin: 0;
       padding: 0;
-      font-family: 'TALE';
+      font-family: 'TALE', cursive, sans-serif;
       background: linear-gradient(135deg, #1e1f26, #343847);
       color: #fff;
       text-align: center;
+      overflow-x: hidden;
     }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 3rem 1rem;
     }
+
     h1 {
-      font-size: 300%;
+      font-size: 3rem;
       color: #f7aa3e;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 15px #f7aa3e88;
     }
+
     .raccoon-img {
-      width: 60%; 
-      border-radius: 48%;
-      margin: 1rem 0;
+      width: 60%;
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(255, 174, 0, 0.4);
+      animation: pulse 4s infinite;
     }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 25px rgba(255, 174, 0, 0.4);
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 45px rgba(255, 174, 0, 0.7);
+      }
+    }
+
     .intro-text {
-      font-size: 200%;
-      line-height: 1.5;
-      margin: 1rem 0;
+      font-size: 1.7rem;
+      line-height: 1.6;
+      margin: 1.5rem 0;
     }
+
     .love-btn {
-      margin-top: 4rem;
-      padding: 1rem 1.2rem;
-      font-size: 200%;
+      margin-top: 3rem;
+      padding: 1rem 2rem;
+      font-size: 1.8rem;
       border: none;
-      border-radius: 5px;
-      background-color: #9b6700;
+      border-radius: 10px;
+      background-color: #ff9800;
       color: #fff;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 5px 20px rgba(255, 152, 0, 0.4);
     }
+
     .love-btn:hover {
-      background-color: #ff8c00;
+      background-color: #ffc107;
+      transform: scale(1.05);
     }
-    /* Стиль для завдання */
+
     .task {
       display: none;
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
+
     .magic-text {
-      font-size: 300%;
-      margin: 1rem 0;
+      font-size: 3rem;
       color: #ffd700;
+      font-weight: bold;
+      animation: heartbeat 1.6s infinite ease-in-out;
     }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
     .task-input {
-      width: 80%; 
-      margin: 6%;
-      max-width: 500px; 
-      height: auto; 
+      width: 80%;
+      max-width: 500px;
       padding: 1rem;
-      font-size: 2rem; 
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
       border-radius: 10px;
       border: 3px solid #ffd700;
       outline: none;
       text-align: center;
-}
+      background-color: #1e1f26;
+      color: #fff;
+    }
 
     .task-check-btn {
-      margin-left: 1rem;
-      padding: 1rem 1rem;
-      font-size: 200%;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
       background-color: #9b6700;
-      color: #ffffff;
+      color: #fff;
       cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
     }
+
     .task-check-btn:hover {
-      background-color: #ff9500;
+      background-color: #ffa726;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .magic-text {
+        font-size: 2.2rem;
+      }
+      .intro-text {
+        font-size: 1.3rem;
+      }
+      .love-btn, .task-check-btn {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.2rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>Вітаю тебе!</h1>
-    <video class="raccoon-img" autoplay loop muted>
-      <source src="dance.mov" type="video/mp4">
+    <video class="raccoon-img" autoplay loop muted playsinline>
+      <source src="dance.mov" type="video/mp4" />
     </video>
-    
+
     <p class="intro-text">
-      Привіт! Я єнот — твій провідник у світі почуттів та відкриттів. 
-      Сьогодні я запрошую тебе на подорож, де кожне завдання відкриває нові грані кохання.
+      Ти мене, напевно, вже знаєш. А може, ми десь зустрічались.  
+      І знову ти тут… Значить, пошуки ще тривають.
     </p>
-    
+
+    <p class="intro-text">
+      Я — той самий єнот, що стежить за твоїм шляхом.  
+      Ти пройшов крізь сторінки, емоції, кроки… і знову повернувся.  
+      А отже — ти шукаєш не просто відчуття. Ти шукаєш те, що змушує серце битися сильніше.
+    </p>
+
+    <p class="intro-text">
+      І знаєш що? Я відчуваю — наступного разу ти знайдеш.
+    </p>
+
     <p class="intro-text">
       Чи готова ти відкритися любові?
     </p>
-    
+
     <button class="love-btn" id="loveButton" onclick="showTask()">Кохати</button>
-    
-    <!-- Блок із завданням -->
+
     <div class="task" id="taskBlock">
       <p class="magic-text" id="magicText"></p>
-      <input type="text" class="task-input" id="loveInput" placeholder="Введіть слово...">
+      <input type="text" class="task-input" id="loveInput" placeholder="Введи слово..." />
+      <br />
       <button class="task-check-btn" onclick="checkLoveWord()">Перевірити Кохання</button>
     </div>
   </div>
 
   <script>
-    // Функція показує завдання та запускає ефект появи тексту
     function showTask() {
       document.getElementById('loveButton').style.display = 'none';
       document.getElementById('taskBlock').style.display = 'block';
       typeWriter('magicText', 'кохання');
     }
 
-    // Ефект поступового відображення літер
     function typeWriter(elementId, text) {
       let i = 0;
-      const speed = 300; // швидкість появи літер
+      const speed = 200;
       const element = document.getElementById(elementId);
       element.innerHTML = "";
 
@@ -140,14 +202,13 @@
       type();
     }
 
-    // Перевіряємо введене слово
     function checkLoveWord() {
       const userInput = document.getElementById('loveInput').value.trim().toLowerCase();
       if (userInput === "кохання") {
-        alert("Саме так! Переходимо далі");
+        alert("Саме так! Переходимо далі 🦝💛");
         window.location.href = "raccoon.html";
       } else {
-        alert("Спробуй ще раз!");
+        alert("Спробуй ще раз! 🤍");
       }
     }
   </script>
