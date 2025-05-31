@@ -1,46 +1,63 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <link rel="icon" type="image/png" href="icon.png" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Love ❤️🦝</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="icon" type="image/png" href="icon.png" />
+  <title>Love ❤️🦝</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@500&display=swap" rel="stylesheet" />
+  <!-- Google Fonts se desideri aggiungerli -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@500&display=swap" rel="stylesheet" />
 
-    <!-- Stili principali -->
-    <link rel="stylesheet" href="animation.css" />
+  <!-- Font personalizzato TALE -->
+  <style>
+    @font-face {
+      font-family: 'TALE';
+      src: url('TALE.ttf') format('truetype');
+    }
 
-    <!-- Script principale -->
-    <script src="animation.js" defer></script>
+    * {
+      font-family: 'TALE', cursive, sans-serif !important;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
+  <!-- Stili principali -->
+  <link rel="stylesheet" href="animation.css" />
+
+  <!-- Script principale -->
+  <script src="animation.js" defer></script>
 </head>
 <body>
-    <!-- Contenitore delle pagine -->
-    <div id="pagesContainer"></div>
+  <!-- Contenitore delle pagine -->
+  <div id="pagesContainer"></div>
 
-    <!-- Suono del battito cardiaco -->
-    <audio id="heartSound" src="heartbeat.mp3" preload="auto"></audio>
+  <!-- Suono del battito cardiaco -->
+  <audio id="heartSound" src="heartbeat.mp3" preload="auto"></audio>
 
-    <!-- Template pagina base -->
-    <template id="page-template">
-        <div class="container">
-            <div class="love-meter">
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
-                </div>
-            </div>
-
-            <div class="romantic-message"></div>
-
-            <div class="raccoon-container">
-                <div class="raccoon"></div>
-            </div>
+  <!-- Template pagina base -->
+  <template id="page-template">
+    <div class="container">
+      <div class="love-meter">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
         </div>
-    </template>
-</body>
+      </div>
 
-<svg width="0" height="0" aria-hidden="true" focusable="false">
+      <div class="romantic-message"></div>
+
+      <div class="raccoon-container">
+        <div class="raccoon"></div>
+      </div>
+    </div>
+  </template>
+
+  <!-- Cuore SVG per il clip path -->
+  <svg width="0" height="0" aria-hidden="true" focusable="false">
     <defs>
       <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
         <path d="M0.5,0.2 
@@ -52,6 +69,6 @@
                  C0.375,0 0.5,0.2 0.5,0.2 Z" />
       </clipPath>
     </defs>
-</svg>
-
+  </svg>
+</body>
 </html>
