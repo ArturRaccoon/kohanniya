@@ -119,3 +119,37 @@ img:hover {
         font-size: 1.2rem;
     }
 }
+
+.go-to-animation {
+    text-align: center;
+    margin: 4rem auto 2rem;
+}
+
+#goAnimation {
+    font-family: 'FAIRY', cursive;
+    font-size: 2rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #ff99cc, #ffe0f0, #ff99cc);
+    color: #4b002f;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    animation: pulseButton 2s infinite;
+}
+
+#goAnimation:hover {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, #ff66aa, #ffd1ec);
+    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.7);
+}
+
+@keyframes pulseButton {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
