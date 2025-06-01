@@ -208,26 +208,24 @@ function mostraFrasiFinaliSovrapposte() {
   const t1 = document.createElement('div');
   t1.className = 'epic-text';
   t1.textContent = "Ох";
-  t1.style.display = 'none';
 
   const t2 = document.createElement('div');
   t2.className = 'epic-text';
-  t2.textContent = "Це так мило! Ти заповнила моє серце💓";
   t2.style.display = 'none';
+  t2.textContent = "Це так мило! Ти заповнила моє серце💓";
 
   const t3 = document.createElement('div');
   t3.className = 'epic-text';
-  t3.textContent = "Я кохаю тебе";
   t3.style.display = 'none';
+  t3.textContent = "Я кохаю тебе";
 
   const t4 = document.createElement('div');
   t4.className = 'epic-text';
-  t4.textContent = "А ти мене?";
   t4.style.display = 'none';
+  t4.textContent = "А ти мене?";
 
   const buttonsContainer = document.createElement('div');
   buttonsContainer.id = 'buttonsContainer';
-  buttonsContainer.style.display = 'none';
 
   const buttonsData = [
     { text: 'Sì', lang: 'it' },
@@ -253,32 +251,35 @@ function mostraFrasiFinaliSovrapposte() {
   overlay.appendChild(buttonsContainer);
   document.body.appendChild(overlay);
 
-  const showText = (el) => {
-    el.style.display = 'block';
-    el.style.animation = 'textReveal 1.5s ease forwards';
+  const showText = (el, delay) => {
+    setTimeout(() => {
+      el.style.display = 'block';
+      el.style.animation = 'textReveal 1.5s ease forwards';
+    }, delay);
   };
 
-  setTimeout(() => {
-    showText(t1); 
-  }, 3000);
+  const hideText = (el, delay) => {
+    setTimeout(() => {
+      el.style.animation = 'fadeOut 0.5s ease forwards';
+      setTimeout(() => {
+        el.style.display = 'none';
+        el.style.animation = '';
+      }, 500);
+    }, delay);
+  };
 
-  setTimeout(() => {
-    showText(t2); 
-  }, 7000); 
-
-  setTimeout(() => {
-    showText(t3);
-  }, 11000);
-
-  setTimeout(() => {
-    showText(t4); 
-  }, 15000); 
+  showText(t1, 500);
+  showText(t2, 2000);
+  hideText(t2, 4000);
+  showText(t3, 4500);
+  showText(t4, 6500);
 
   setTimeout(() => {
     buttonsContainer.style.display = 'flex';
     buttonsContainer.style.animation = 'textReveal 1.5s ease forwards';
-  }, 20000); 
+  }, 8500);
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const firstPage = createPage(0);
