@@ -124,8 +124,8 @@ function createPage(index) {
   mediaElement.classList.add('heartbeat');
 
   // Battito graduale da lento a veloce
-  const minSpeed = 0.8;
-  const maxSpeed = 3.0;
+  const minSpeed = 0.4;
+  const maxSpeed = 6.0;
   const step = Math.min(index, maxPageIndex);
   const speed = maxSpeed - (step / maxPageIndex) * (maxSpeed - minSpeed);
   mediaElement.style.setProperty('--heartbeat-speed', `${speed.toFixed(2)}s`);
@@ -268,9 +268,9 @@ function mostraFrasiFinaliSovrapposte() {
     }, delay);
   };
 
-  showText(t1, 1500);
-  showText(t2, 3000);
-  hideText(t2, 5000);
+  showText(t1, 500);
+  showText(t2, 5000);
+  hideText(t2, 2000);
   showText(t3, 6500);
   showText(t4, 7500);
 
