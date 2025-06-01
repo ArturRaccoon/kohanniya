@@ -124,8 +124,8 @@ function createPage(index) {
   mediaElement.classList.add('heartbeat');
 
   // Battito graduale da lento a veloce
-  const minSpeed = 0.4;
-  const maxSpeed = 6.0;
+  const minSpeed = 0.6;
+  const maxSpeed = 5.5;
   const step = Math.min(index, maxPageIndex);
   const speed = maxSpeed - (step / maxPageIndex) * (maxSpeed - minSpeed);
   mediaElement.style.setProperty('--heartbeat-speed', `${speed.toFixed(2)}s`);
