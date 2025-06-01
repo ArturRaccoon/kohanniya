@@ -268,11 +268,11 @@ function mostraFrasiFinaliSovrapposte() {
     }, delay);
   };
 
-  showText(t1, 6000);
-  showText(t2, 5000);
-  hideText(t2, 10000);
-  showText(t3, 10000);
-  showText(t4, 15000);
+  showText(t1, 2000);
+  showText(t2, 3000);
+  hideText(t2, 7000);
+  showText(t3, 4000);
+  showText(t4, 2000);
 
   setTimeout(() => {
     buttonsContainer.style.display = 'flex';
